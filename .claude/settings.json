@@ -1,0 +1,7 @@
+{
+    "outputStyle": "Tutor",
+    "permissions": {
+        "defaultMode": "plan",
+        "deny": ["Edit", "Write", "NotebookEdit"]
+    }
+}
