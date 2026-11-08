@@ -71,4 +71,5 @@ def agrupar_incidencias():
             if incidencia["id"] not in group_incidencias[incidencia["matricula"]]:
                 group_incidencias[incidencia["matricula"]].append(incidencia["id"])
     return group_incidencias
-            
+
+##Ejercicio 2
