@@ -35,7 +35,7 @@ def save_incidents(path: Path, incidents: list[dict]) -> None:
 
 def load_incidents(path: Path):
     try:
-        text = path.read_text(encoding="utf-8") # convierte el json a un archivo de texto
+        text = path.read_text(encoding="utf-8") # abr eel fichero, lo lee y devuelve como un str
     except FileNotFoundError:
         return [] 
     try:

@@ -108,17 +108,4 @@ def write_incidentes(path: Path, incidentes: list[dict]) -> None:
             raise
     
 #Leer
-
-def read_incidentes(path: Path) -> list[dict]:
-    try:
-        texto = path.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        return []
-    try:
-        data = json.load(texto)
-    except json.JSONDecodeError as exc:
-        raise StorageError(f"{path} no contiene JSON válido (línea {exc.lineno})") from exc
-    if not isinstance(data, list):
-        raise StorageError(f"{path} debería contener una lista")
-    return data
-    
+write_incidentes(ruta, incidentes)
