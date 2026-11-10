@@ -33,5 +33,12 @@
     "kilometraje": 9,
     "estado": "open",
     "urgencia": "critical"
+  },
+  {
+    "id": 6,
+    "matricula": "1959SIU",
+    "kilometraje": 1238123,
+    "estado": "open",
+    "urgencia": "critical"
   }
 ]

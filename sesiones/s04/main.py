@@ -10,7 +10,7 @@ class StorageError(Exception):
 
 
 ruta = Path("sesiones/s04/datos/incidencias.json")
-DANGER_WORDS = ("ampastra", "humo", "caliente", "quema", "i'm afraid")
+DANGER_WORDS = ("ampastra", "humo", "caliente", "quema")
 
 def create_incidencias_json(path: Path, incidencias: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -57,19 +57,31 @@ def create_incidencias(plate, kilometraje, descripcion):
     incidencia = {"id": num_incidencia, "matricula": plate, "kilometraje": kilometraje, "estado": estado, "urgencia": urgencia}
     incidencias.append(incidencia)
 
+def comprobar_matricula(matricula: str) -> bool:
+    if  (matricula[:4]).isdigit() and (matricula[4:7]).isalpha() and len(matricula) == 7:
+        return True
+    return False
+ 
+
 
 incidencias = read_incidencias(ruta);
 
 while(True):
     matricula = input("introduce la matricula: ")
+    matricula_formalizada = matricula.strip().replace(" ", "").upper()
+    while not comprobar_matricula(matricula_formalizada):
+        print("Matricula en formato inválido \n")
+        matricula = input("introduce la matricula: ")
+        matricula_formalizada = matricula.strip().replace(" ", "").upper()
     descripcion = input("introduce una descripcción del problema: ")
     try:
         kilometros = int(input("introduce los kilometros: "))
     except ValueError as exc:
         print(f"Los kilometros tienen que ser un número")
-    matricula_formalizada = matricula.strip().replace(" ", "").upper()
-    descripcion.strip().replace(" ", "").lower()
-    create_incidencias(matricula_formalizada, kilometros, descripcion)
+        break
+    
+    descripcion_formalizada = descripcion.strip().replace(" ", "").lower()
+    create_incidencias(matricula_formalizada, kilometros, descripcion_formalizada)
     print(incidencias)
     create_incidencias_json(ruta, incidencias)
     exit()
