@@ -40,5 +40,19 @@
     "kilometraje": 1238123,
     "estado": "open",
     "urgencia": "critical"
+  },
+  {
+    "id": 7,
+    "matricula": "1234NGA",
+    "kilometraje": 12312312,
+    "estado": "open",
+    "urgencia": "normal"
+  },
+  {
+    "id": 8,
+    "matricula": "1658DXM",
+    "kilometraje": 891,
+    "estado": "open",
+    "urgencia": "critical"
   }
 ]

@@ -4,12 +4,14 @@ import os
 import tempfile
 from dataclasses import MISSING
 from pathlib import Path
+
 class StorageError(Exception):
     """Error al leer o escribir el almacén de incidencias."""
 
 
 
 ruta = Path("sesiones/s04/datos/incidencias.json")
+ruta_csv = Path("sesiones/s04/datos/incidencias.csv")
 DANGER_WORDS = ("ampastra", "humo", "caliente", "quema")
 
 def create_incidencias_json(path: Path, incidencias: list[dict]) -> None:
@@ -27,7 +29,7 @@ def create_incidencias_json(path: Path, incidencias: list[dict]) -> None:
 
 def read_incidencias(ruta: Path) -> list[dict]:
     try:
-        texto = ruta.read_text(encoding="utf-8")
+        texto = ruta.read_text(encoding="utf-8") 
     except FileNotFoundError:
         return []
     try:
@@ -61,10 +63,20 @@ def comprobar_matricula(matricula: str) -> bool:
     if  (matricula[:4]).isdigit() and (matricula[4:7]).isalpha() and len(matricula) == 7:
         return True
     return False
- 
 
+def create_incidencias_csv(path: Path, incidencias: list[dict]):
+    fields = ["id", "matricula", "kilometraje", "estado", "urgencia"]
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(incidencias)
 
-incidencias = read_incidencias(ruta);
+def read_csv(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        list_incidencias = list(reader)
+    return list_incidencias
+incidencias = read_incidencias(ruta)
 
 while(True):
     matricula = input("introduce la matricula: ")
@@ -84,4 +96,5 @@ while(True):
     create_incidencias(matricula_formalizada, kilometros, descripcion_formalizada)
     print(incidencias)
     create_incidencias_json(ruta, incidencias)
+    create_incidencias_csv(ruta_csv, incidencias)
     exit()

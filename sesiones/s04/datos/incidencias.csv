@@ -1,0 +1,9 @@
+id,matricula,kilometraje,estado,urgencia
+1,12347dsd,1234567,open,critical
+2,1234ABC,85000,open,normal
+3,5678XYZ,,open,critical
+4,1234ABC,85500,open,critical
+5,1234BBN,9,open,critical
+6,1959SIU,1238123,open,critical
+7,1234NGA,12312312,open,normal
+8,1658DXM,891,open,critical
