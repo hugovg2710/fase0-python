@@ -1,58 +1,12 @@
 [
   {
     "id": 1,
-    "matricula": "12347dsd",
-    "kilometraje": 1234567,
-    "estado": "open",
-    "urgencia": "critical"
+    "titulo": "Fallo de red",
+    "abierta": true
   },
   {
     "id": 2,
-    "matricula": "1234ABC",
-    "kilometraje": 85000,
-    "estado": "open",
-    "urgencia": "normal"
-  },
-  {
-    "id": 3,
-    "matricula": "5678XYZ",
-    "kilometraje": null,
-    "estado": "open",
-    "urgencia": "critical"
-  },
-  {
-    "id": 4,
-    "matricula": "1234ABC",
-    "kilometraje": 85500,
-    "estado": "open",
-    "urgencia": "critical"
-  },
-  {
-    "id": 5,
-    "matricula": "1234BBN",
-    "kilometraje": 9,
-    "estado": "open",
-    "urgencia": "critical"
-  },
-  {
-    "id": 6,
-    "matricula": "1959SIU",
-    "kilometraje": 1238123,
-    "estado": "open",
-    "urgencia": "critical"
-  },
-  {
-    "id": 7,
-    "matricula": "1234NGA",
-    "kilometraje": 12312312,
-    "estado": "open",
-    "urgencia": "normal"
-  },
-  {
-    "id": 8,
-    "matricula": "1658DXM",
-    "kilometraje": 891,
-    "estado": "open",
-    "urgencia": "critical"
+    "titulo": "Pantalla rota",
+    "abierta": false
   }
 ]

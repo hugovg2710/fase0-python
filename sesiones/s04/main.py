@@ -29,7 +29,7 @@ def create_incidencias_json(path: Path, incidencias: list[dict]) -> None:
 
 def read_incidencias(ruta: Path) -> list[dict]:
     try:
-        texto = ruta.read_text(encoding="utf-8") 
+        texto = ruta.read_text(encoding="utf-8") # Abre el archivo como texto
     except FileNotFoundError:
         return []
     try:
