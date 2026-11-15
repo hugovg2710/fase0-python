@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "titulo": "Fallo de red",
+    "abierta": true
+  },
+  {
+    "id": 2,
+    "titulo": "Pantalla rota",
+    "abierta": false
+  }
+]

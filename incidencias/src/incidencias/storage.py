@@ -3,7 +3,6 @@ import json
 import os
 import tempfile
 from pathlib import Path
-from dataclasses import MISSING
 
 
 class StorageError(Exception):
@@ -35,9 +34,9 @@ def save_incidents(path: Path, incidents: list[dict]) -> None:
 
 def load_incidents(path: Path):
     try:
-        text = path.read_text(encoding="utf-8") # abr eel fichero, lo lee y devuelve como un str
+        text = path.read_text(encoding="utf-8") # abre el fichero, lo lee y devuelve como un str
     except FileNotFoundError:
-        return [] 
+        return []
     try:
         data = json.loads(text) # Lo "convierte" a un list[dict]
     except json.JSONDecodeError as exc:
